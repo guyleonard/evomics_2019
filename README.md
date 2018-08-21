@@ -2,7 +2,7 @@
 Instructions and notes for creating the Virtual Machines for the evomics.org Workshops 2019. The final versions (will be) are stored as a set of Amazon Machine Images (AMIs) [here]() and [here](). These are the ones use used in the workshops.
 
 # 2019 Workshops (Genomics & Phylogenomics)
-We will be using the latest Ubuntu Linux LTS as our the OS for our initial VM, in this case: [ami-053295bb822a154ba](https://console.aws.amazon.com/ec2/home?region=us-east-1#launchAmi=ami-053295bb822a154ba) which is the 'us-east-1' copy of Ubuntu Bionic Beaver 18.04 LTS.
+We will be using the latest Ubuntu Linux LTS as our the OS for our initial VM, in this case: [ami-0b425589c7bb7663d](https://console.aws.amazon.com/ec2/home?region=us-east-1#launchAmi=ami-0b425589c7bb7663d) which is the 'us-east-1' copy of Ubuntu Bionic Beaver 18.04 LTS.
 
 ## Automation
 We will use a series of shell scripts, [Ansible](https://www.ansible.com/) and a few other package managers such as apt-get, pip, conda, and gem to install the software, dependancies and workshop materials. This will be split into three tasks: base VM setup, genomics specific setup and phylogenomics specific setup. Each of the workshop specific tasks will be split in to softare and material sub tasks.
