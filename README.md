@@ -20,6 +20,5 @@ If you already have a base AMI that you wish to use you can do this instead:
     git clone https://github.com/guyleonard/evomics_2019.git
     ansible-playbook /home/ubuntu/evomics_2019/base/main.yaml -b -K -c local -i "localhost,"
 
-# Previous
-[2018](https://github.com/guyleonard/evomics_2018)
-[2017](https://github.com/guyleonard/evomics_2017)
+# Previous Workshops
+There are a lot of notes and suggestions that cane be found in the previous year's set up. Check out the repos for [2018](https://github.com/guyleonard/evomics_2018) and [2017](https://github.com/guyleonard/evomics_2017) for more information.
