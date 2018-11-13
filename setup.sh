@@ -6,13 +6,12 @@ set -e # exit if command exits with non-zero status
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
+sudo apt-get install software-properties-common
 
-# install python-pip and upgrade
-sudo apt-get install -y python-pip
-sudo -H pip install --upgrade pip
-
-# install ansible from pip (more recent version)
-sudo -H pip install ansible
+# install ansible
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt install ansible
 
 # as much as I love cowsay, lets turn it off so Ansible's messages aren't cows
 export ANSIBLE_NOCOWS=1
