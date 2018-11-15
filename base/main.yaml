@@ -1,0 +1,37 @@
+- hosts: all
+  become: yes
+  vars:
+    - software_dir: /home/ubuntu/software
+    - source_dir: "{{software_dir}}/.source"
+    - mysql_root_pass: '*522F526859693BE4EBF948CA2FC0A25326CFD84E'
+    - master_password: '$6$vaUtdo8oSgvGmBNO$B/0gxyOCv5b1DWGaiOTBUdZdHW5nrXZhUNw1yu8pVL5LS8Hs3DxL3/rD0aBEx9h7kNpDi73UZ3XYd7wpbXAx90'
+
+  pre_tasks:
+    # create Directories
+    - name: Create Software Dir
+      file: path={{software_dir}} state=directory
+    - name: Create Software Source Dir
+      file: path={{source_dir}} state=directory
+
+    # setup workhsop group  
+    - name: Create Workshop Group
+      group: name=workshop state=present
+
+    # setup a master user with the above SHA-512 crypted password using mkpasswd
+    - name: Create 'master' Workshop User with SUDO privileges
+      user: name=master group=workshop comment="Master Workshop User" state=present shell=/bin/bash groups="workshop,sudo" password="{{master_password}}"
+    
+    # We don't be use security keys in the workshop, so password-only logins need to be enabled.
+    - name: Enable Password Login
+      lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes"
+   
+    # Amazon has a keep alive around 60 seconds, then the ssh session times out. That's annoying, let's keep it alive!
+    - name: Changing SSH Timeout
+      lineinfile: dest=/etc/ssh/sshd_config line="ClientAliveInterval 60"
+
+    # Restart the SSH Daemon for the above changes to take effect.
+    - name: Restart SSH Daemon
+      service: name=ssh state=restarted
+
+  tasks:
+
