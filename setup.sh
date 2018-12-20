@@ -5,7 +5,7 @@ set -e # exit if command exits with non-zero status
 # system updates
 sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 sudo apt-get -y install software-properties-common
 
 # install ansible
