@@ -77,7 +77,6 @@
           - php7.2
           - python
           - python-pip
-          - python-software-properties
           - python3
           - python3-pip
           - sqlite3
