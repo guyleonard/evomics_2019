@@ -4,14 +4,14 @@ set -e # exit if command exits with non-zero status
 
 # system updates
 sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
-sudo apt-get install software-properties-common
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade
+sudo apt-get -y install software-properties-common
 
 # install ansible
 sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get update
-sudo apt install ansible
+sudo apt -y install ansible
 
 # as much as I love cowsay, lets turn it off so Ansible's messages aren't cows
 export ANSIBLE_NOCOWS=1
