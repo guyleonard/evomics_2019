@@ -37,10 +37,14 @@
 
     # Install MATE Desktop Environment and remove Overlay Scroll
     - name: Install MATE Desktop
-      apt: name={{item}} state=present install_recommends=yes
-      with_items:
-       - mate-desktop-environment
-       - mate-desktop-environment-extras
+      apt:
+        name: "{{ packages }}"
+        state: present
+        install_recommends: yes
+      vars:
+        packages:
+          - mate-desktop-environment
+          - mate-desktop-environment-extras
       tags: mate
 
     - name: Disable Scroll Overlay
@@ -49,36 +53,39 @@
 
     # Install Other Dependencies and Software
     - name: Installing Other Useful Software - This may take some time...Beer O'clock!
-      apt: name={{item}} state=present install_recommends=yes 
-      with_items:
-        - apache2
-        - apache2-bin
-        - autoconf
-        - automake
-        - build-essential
-        - cmake
-        - cowsay
-        - cowsay-off
-        - cpanminus
-        - filezilla
-        - fortune-mod
-        - lolcat
-        - m4
-        - make
-        - mosh
-        - php7.2
-        - python
-        - python-pip
-        - python-software-properties
-        - python3
-        - python3-pip
-        - sqlite3
-        - tasksel
-        - ubuntu-restricted-extras
-        - unzip
-        - uudeview
-        - xcowsay
-        - xrdp
-        - xvfb
-        - zip
+      apt:
+        name: "{{ packages }}"
+        state: present
+        install_recommends: yes
+      vars:
+        packages:
+          - apache2
+          - apache2-bin
+          - autoconf
+          - automake
+          - build-essential
+          - cmake
+          - cowsay
+          - cowsay-off
+          - cpanminus
+          - filezilla
+          - fortune-mod
+          - lolcat
+          - m4
+          - make
+          - mosh
+          - php7.2
+          - python
+          - python-pip
+          - python3
+          - python3-pip
+          - sqlite3
+          - tasksel
+          - ubuntu-restricted-extras
+          - unzip
+          - uudeview
+          - xcowsay
+          - xrdp
+          - xvfb
+          - zip
       tags: dependencies
