@@ -43,6 +43,7 @@
         install_recommends: yes
       vars:
         packages:
+          - mate-core
           - mate-desktop-environment
           - mate-desktop-environment-extras
       tags: mate
