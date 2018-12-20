@@ -38,11 +38,13 @@
     # Install MATE Desktop Environment and remove Overlay Scroll
     - name: Install MATE Desktop
       apt:
-        pkg: 
+        name: "{{ packages }}"
+        state: present
+        install_recommends: yes
+      vars:
+        packages:
           - mate-desktop-environment
           - mate-desktop-environment-extras
-        state=present
-        install_recommends=yes
       tags: mate
 
     - name: Disable Scroll Overlay
@@ -51,8 +53,12 @@
 
     # Install Other Dependencies and Software
     - name: Installing Other Useful Software - This may take some time...Beer O'clock!
-      apt: 
-        pkg:
+      apt:
+        name: "{{ packages }}"
+        state: present
+        install_recommends: yes
+      vars:
+        packages:
           - apache2
           - apache2-bin
           - autoconf
@@ -83,6 +89,4 @@
           - xrdp
           - xvfb
           - zip
-        state=present
-        install_recommends=yes
       tags: dependencies
