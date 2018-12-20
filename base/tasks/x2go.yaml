@@ -1,0 +1,21 @@
+- name: Checking Aptitude is Installed
+  apt:
+    name: aptitude
+    state: present
+ 
+- name: Adding X2Go Repository
+  apt_repository:
+    repo: 'ppa:x2go/stable'
+    state: present
+
+- name: Installing X2Go
+  apt:
+    name: "{{ packages }}"
+    state: present
+    install_recommends: yes
+    update_cache: yes
+  var:
+    packages:
+      - x2goserver
+      - x2goserver-xsession
+      - x2goclient
