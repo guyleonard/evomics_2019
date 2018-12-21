@@ -39,12 +39,12 @@
 
 - name: Download Guacamole Client
   get_url:
-    src: 'http://ftp.tudelft.nl/apache/guacamole/0.9.14/binary/guacamole-0.9.14.war'
+    url: 'http://ftp.tudelft.nl/apache/guacamole/0.9.14/binary/guacamole-0.9.14.war'
     dest: '{{ source_dir }}/guacamole-0.9.14.war'
 
 - name: Download Guacamole Server
   get_url:
-    src: 'http://ftp.tudelft.nl/apache/guacamole/0.9.14/source/guacamole-server-0.9.14.tar.gz'
+    url: 'http://ftp.tudelft.nl/apache/guacamole/0.9.14/source/guacamole-server-0.9.14.tar.gz'
     dest: '{{ source_dir }}/guacamole-server-0.9.14.tar.gz'
 
 - name: Unarchive Guacamole Server
