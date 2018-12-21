@@ -89,3 +89,15 @@
           - xvfb
           - zip
       tags: dependencies
+
+    # Install X2Go
+    - include: tasks/x2go.yaml
+      tags: x2go
+
+    # Install XRDP
+    - include: tasks/xrdp.yaml
+      tags: xrdp
+
+    # Install VNC
+    - include: tasks/vnc.yaml
+      tags: vnc
