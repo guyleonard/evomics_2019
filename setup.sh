@@ -2,6 +2,9 @@
 set -x # debugging on
 set -e # exit if command exits with non-zero status
 
+# turn off prompts from updates
+export DEBIAN_FRONTEND=noninteractive
+
 # system updates
 sudo apt-get update
 sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
