@@ -46,14 +46,14 @@
     password: "{{ mysql_root_pass }}"
     encrypted: yes
     priv: '*.*:ALL'
-    host_all: yes #"{{item}}"
+    host: "{{ item }}"
     login_user: root
     login_password: "{{ mysql_root_pass }}"
     state: present
-  #with_items:
-  #  - 127.0.0.1
-  #  - localhost
-  #  - ::1
+  loop:
+    - 127.0.0.1
+    - localhost
+    - ::1
 
 - name: Remove the Test Database
   mysql_db:
