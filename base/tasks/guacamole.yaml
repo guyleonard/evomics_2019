@@ -6,8 +6,8 @@
     packages:
       - build-essential 
       - freerdp-x11
-      - g++
-      - gcc
+      - g++-6
+      - gcc-6
       - ghostscript
       - haveged
       - jq
@@ -72,12 +72,12 @@
     login_password: '{{ mysql_root_pass }}'
 
 - name: Configure Guacamole Server
-  command: './configure --with-init-dir=/etc/init.d'
+  command: './configure cc=gcc-6 --with-init-dir=/etc/init.d'
   args:
     chdir: '{{ software_dir }}/guacamole-server-0.9.14'
 
 - name: Make Guacamole Server
-  command: 'make'
+  command: 'make CC=gcc-6'
   args:
     chdir: '{{ software_dir }}/guacamole-server-0.9.14'
 
