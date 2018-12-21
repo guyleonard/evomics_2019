@@ -5,7 +5,7 @@ set -e # exit if command exits with non-zero status
 # turn off prompts from updates
 unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
-ucf --purge /boot/grub/menu.lst
+sudo ucf --purge /boot/grub/menu.lst
 export DEBIAN_FRONTEND=noninteractive
 
 # system updates
