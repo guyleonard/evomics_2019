@@ -109,6 +109,10 @@
       include: tasks/mariadb.yaml
       tags: mysql, mariadb
 
+    - name: Open-Java and Oracle-Java
+      include: tasks/java.yaml
+      tags: java
+
     # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
       apt:
