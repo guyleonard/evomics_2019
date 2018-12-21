@@ -34,7 +34,6 @@
       service: name=ssh state=restarted
 
   tasks:
-
     # Install MATE Desktop Environment and remove Overlay Scroll
     - name: Install MATE Desktop
       apt:
@@ -91,13 +90,16 @@
       tags: dependencies
 
     # Install X2Go
-    - include: tasks/x2go.yaml
+    - name: test
+      include: tasks/x2go.yaml
       tags: x2go
 
     # Install XRDP
-    - include: tasks/xrdp.yaml
+    - name: test
+      include: tasks/xrdp.yaml
       tags: xrdp
 
     # Install VNC
-    - include: tasks/vnc.yaml
+    - name: test
+      include: tasks/vnc.yaml
       tags: vnc
