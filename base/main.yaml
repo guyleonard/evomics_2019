@@ -113,6 +113,10 @@
       include: tasks/java.yaml
       tags: java
 
+    - name: Guacamole
+      include: tasks/guacamole.yaml
+      tags: guacamole
+
     # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
       apt:
