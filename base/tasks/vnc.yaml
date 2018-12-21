@@ -4,6 +4,6 @@
     state: present
     install_recommends: yes
     update_cache: yes
-  var:
+  vars:
     packages:
       - vino
