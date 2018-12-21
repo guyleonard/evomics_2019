@@ -1,0 +1,94 @@
+- name: Guacamole Dependencies
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - build-essential 
+      - freerdp-x11
+      - g++
+      - gcc
+      - ghostscript
+      - haveged
+      - jq
+      - libavcodec-dev
+      - libavutil-dev
+      - libcairo2-dev
+      - libfreerdp-dev
+      - libjpeg-turbo8-dev
+      - libossp-uuid-dev
+      - libpango1.0-dev
+      - libpng-dev
+      - libpulse-dev
+      - libssh2-1-dev
+      - libssl-dev
+      - libswscale-dev
+      - libtelnet-dev
+      - libvncserver-dev
+      - libvorbis-dev
+      - libwebp-dev
+      - tomcat8
+      - tomcat8-admin
+      - tomcat8-common
+      - tomcat8-user
+
+- name: Stop Tomcat Service
+  systemd:
+    name: tomcat8
+    state: stopped
+
+- name: Download Guacamole Client
+  get_url:
+    src: 'http://ftp.tudelft.nl/apache/guacamole/0.9.14/binary/guacamole-0.9.14.war'
+    dest: '{{ source_dir }}/guacamole-0.9.14.war'
+
+- name: Download Guacamole Server
+  get_url:
+    src: 'http://ftp.tudelft.nl/apache/guacamole/0.9.14/source/guacamole-server-0.9.14.tar.gz'
+    dest: '{{ source_dir }}/guacamole-server-0.9.14.tar.gz'
+
+- name: Unarchive Guacamole Server
+  unarchive:
+    src: '{{ source_dir }}/guacamole-server-0.9.14.tar.gz'
+    dest: '{{ software_dir }}/guacamole-server-0.9.14'
+
+- name: Create Guacamole mysql DB
+  mysql_db:
+    name: guac_db
+    encoding: utf8
+    state: present
+    login_user: 'root'
+    login_password: '{{ mysql_root_pass }}'
+
+- name: Create Guacamole mysql User
+  mysql_user:
+    name: guac_user
+    password: guacdungeon
+    priv: guac_db.*:ALL,GRANT
+    state: present
+    login_user: 'root'
+    login_password: '{{ mysql_root_pass }}'
+
+- name: Configure Guacamole Server
+  command: './configure --with-init-dir=/etc/init.d'
+  args:
+    chdir: '{{ software_dir }}/guacamole-server-0.9.14'
+
+- name: Make Guacamole Server
+  command: 'make'
+  args:
+    chdir: '{{ software_dir }}/guacamole-server-0.9.14'
+
+- name: Make Install Guacamole Server
+  command: 'make install'
+  args:
+    chdir: '{{ software_dir }}/guacamole-server-0.9.14'
+
+- name: Update ldconfig for Guacamole Server
+  command: 'ldconfig'
+
+- name: Start and Enable Guacamole Server
+  systemd:
+    name: guacd
+    state: started
+    enabled: yes
