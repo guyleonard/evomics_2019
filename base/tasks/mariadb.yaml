@@ -47,6 +47,7 @@
     encrypted: yes
     priv: '*.*:ALL'
     host: "{{ item }}"
+    host_all: yes
     login_user: root
     login_password: "{{ mysql_root_pass }}"
     state: present
