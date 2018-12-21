@@ -13,6 +13,3 @@
   systemd:
     name: xrdp
     enabled: yes
-
-# - name: Configure XRDP with MATE
-# sudo sed -i.bak '/fi/a #xrdp multiple users configuration \n mate-session \n' /etc/xrdp/startwm.sh

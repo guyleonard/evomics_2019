@@ -70,6 +70,7 @@
           - cpanminus
           - filezilla
           - fortune-mod
+          - gconf2
           - lolcat
           - m4
           - make
@@ -90,16 +91,16 @@
       tags: dependencies
 
     # Install X2Go
-    - name: test
+    - name: X2Go
       include: tasks/x2go.yaml
       tags: x2go
 
     # Install XRDP
-    - name: test
+    - name: XRDP
       include: tasks/xrdp.yaml
       tags: xrdp
 
     # Install VNC
-    - name: test
-      include: tasks/vnc.yaml
-      tags: vnc
+    #- name: VNC
+    #  include: tasks/vnc.yaml
+    #  tags: vnc
