@@ -86,7 +86,6 @@
           - unzip
           - uudeview
           - xcowsay
-          - xrdp
           - xvfb
           - zip
       tags: dependencies
