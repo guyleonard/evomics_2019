@@ -1,0 +1,9 @@
+- name: Installing VNC - Vino
+  apt:
+    name: "{{ packages }}"
+    state: present
+    install_recommends: yes
+    update_cache: yes
+  var:
+    packages:
+      - vino
