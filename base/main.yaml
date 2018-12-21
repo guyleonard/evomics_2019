@@ -104,3 +104,15 @@
     #- name: VNC
     #  include: tasks/vnc.yaml
     #  tags: vnc
+
+    - name: MariaDB
+      include: tasks/mariadb.yaml
+      tags: mysql, mariadb
+
+    # Upgrade and Dist-Upgrade apt
+    - name: Upgrade and Dist-Upgrade
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+        upgrade: full
+      tags: upgrade
