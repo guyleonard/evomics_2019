@@ -40,7 +40,7 @@
 - name: Download Guacamole Client
   get_url:
     url: 'http://ftp.tudelft.nl/apache/guacamole/0.9.14/binary/guacamole-0.9.14.war'
-    dest: '{{ source_dir }}/guacamole-0.9.14.war'
+    dest: '/var/lib/tomcat8/webapps/guacamole.war'
 
 - name: Download Guacamole Server
   get_url:
@@ -93,4 +93,10 @@
   systemd:
     name: guacd
     state: started
+    enabled: yes
+
+- name: Restart Tomcat8
+  systemd:
+    name: tomcat8
+    state: restarted
     enabled: yes
