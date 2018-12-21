@@ -51,6 +51,7 @@
   unarchive:
     src: '{{ source_dir }}/guacamole-server-0.9.14.tar.gz'
     dest: '{{ software_dir }}/guacamole-server-0.9.14'
+    remote_src: yes
 
 - name: Create Guacamole mysql DB
   mysql_db:
