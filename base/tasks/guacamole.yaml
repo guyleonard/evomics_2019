@@ -101,14 +101,19 @@
       <param name="hostname">localhost</param>
       <param name="port">22</param>
       <param name="username">master</param>
-      <param name="password">meatdungeon</param>
+      <param name="password">{{ mysql_root_pass }}</param>
+      <param name="color-scheme">green-black</param>
+      <param name="enable-sftp">true</param>
       </connection>
       <connection name="Desktop">
       <protocol>rdp</protocol>
       <param name="hostname">localhost</param>
       <param name="port">3389</param>
       <param name="username">master</param>
-      <param name="password">meatdungeon</param>
+      <param name="password">{{ mysql_root_pass }}</param>
+      <param name="resize-method">display-update</param>
+      <param name="enable-sftp">true</param>
+      <param name="enable-wallpaper">true</param>
       </connection>
       </authorize>
       </user-mapping>
