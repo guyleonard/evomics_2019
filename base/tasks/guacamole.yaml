@@ -17,7 +17,6 @@
       - libcairo2-dev
       - libfreerdp-dev
       - libjpeg-turbo8-dev
-      #- libmysql-java
       - libossp-uuid-dev
       - libpango1.0-dev
       - libpng-dev
@@ -60,25 +59,6 @@
     creates: '{{ software_dir }}/guacamole-server-0.9.14'
     remote_src: yes
 
-# Create a Guacamole MySQL DB
-#- name: Create Guacamole mysql DB
-#  mysql_db:
-#    name: guac_db
-#    encoding: utf8
-#    state: present
-#    login_user: 'root'
-#    login_password: '{{ mysql_root_pass }}'
-
-# Create a Guacamole MySQL User, using our root account
-#- name: Create Guacamole mysql User
-#  mysql_user:
-#    name: guac_user
-#    password: guacdungeon
-#    priv: guac_db.*:ALL,GRANT
-#    state: present
-#    login_user: 'root'
-#    login_password: '{{ mysql_root_pass }}'
-
 # Configure the server, using GCC-6
 - name: Configure Guacamole Server
   command: './configure cc=gcc-6 --with-init-dir=/etc/init.d'
@@ -101,33 +81,6 @@
 - name: Update ldconfig for Guacamole Server
   command: 'ldconfig'
 
-# We need a Java DB Connector for Guacamole
-#- name: Download Guacamole JDBC
-#  get_url:
-#    url: 'http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/0.9.14/binary/guacamole-auth-jdbc-0.9.14.tar.gz'
-#    dest: '{{ source_dir }}/guacamole-auth-jdbc-0.9.14.tar.gz'
-
-# Unzip it
-#- name: Unarchive Guacamole JDBC
-#  unarchive:
-#    src: '{{ source_dir }}/guacamole-auth-jdbc-0.9.14.tar.gz'
-#    dest: '{{ software_dir }}'
-#    creates: '{{ software_dir }}/guacamole-auth-jdbc-0.9.14'
-#    remote_src: yes
-
-# Import the Java DB Connector Guacamole DB Shemas
-#- name: Import Guacamole mysql Database Schemas
-#  mysql_db:
-#    state: import
-#    name: guac_db
-#    login_user: guac_user
-#    login_password: guacdungeon
-#    target: '{{ item }}'
-#  loop:
-#    - '{{ software_dir }}/guacamole-auth-jdbc-0.9.14/mysql/schema/001-create-schema.sql'
-#    - '{{ software_dir }}/guacamole-auth-jdbc-0.9.14/mysql/schema/002-create-admin-user.sql'
-#  ignore_errors: yes
-
 # Make a bunch of directories that will be needed
 - name: Make Relevant Dirs
   file:
@@ -135,44 +88,6 @@
     state: directory
   loop:
     - /etc/guacamole
-#    - /etc/guacamole/lib
-#    - /etc/guacamole/extensions
-
-# Copy the Java DB Connector jar to the Guacamole extensions dir
-#- name: Copy Guacamole JDBC
-#  file:
-#    src: '{{ software_dir }}/guacamole-auth-jdbc-0.9.14/mysql/guacamole-auth-jdbc-mysql-0.9.14.jar'
-#    dest: /etc/guacamole/extensions
-#    state: hard
-
-# We also need a Java DB mysql Connector
-#- name: Get Java DB Connector
-#  get_url:
-#    url: 'https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java_8.0.11-1ubuntu18.04_all.deb'
-#    dest: '{{ source_dir }}/mysql-connector-java_8.0.11-1ubuntu18.04_all.deb'
-
-# This needs to be installed
-#- name: Install Java DB Connector
-#  apt:
-#    deb: '{{ source_dir }}/mysql-connector-java_8.0.11-1ubuntu18.04_all.deb'
-
-# and then symlinked to the Guacamole lib dir
-#- name: Symlink Java DB Connector to Guacamole
-#  file:
-#    src: '/usr/share/java/mysql-connector-java-8.0.11.jar'
-#    dest: '/etc/guacamole/lib/mysql-connector-java.jar'
-#    state: link
-
-# create guacamole.properties to tell it where the mysql db is
-#- name: Create guacamole.properties
-#  copy:
-#    dest: /etc/guacamole/guacamole.properties
-#    content: |
-#      mysql-hostname: localhost
-#      mysql-port: 3306
-#      mysql-database: guac_db
-#      mysql-username: guac_user
-#      mysql-password: guacdungeon
 
 # create user-mapping.xml
 - name: Create user-mapping.xml
