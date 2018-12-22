@@ -175,6 +175,28 @@
 #      mysql-password: guacdungeon
 
 # create user-mapping.xml
+- name: Create user-mapping.xml
+  copy:
+    dest: /etc/guacamole/user-mapping.xml
+    content: |
+      <user-mapping>
+      <authorize username="guac_user" password="guacdungeon">
+      <connection name="Terminal">
+      <protocol>ssh</protocol>
+      <param name="hostname">localhost</param>
+      <param name="port">22</param>
+      <param name="username">master</param>
+      <param name="password">meatdungeon</param>
+      </connection>
+      <connection name="Desktop">
+      <protocol>rdp</protocol>
+      <param name="hostname">localhost</param>
+      <param name="port">3389</param>
+      <param name="username">master</param>
+      <param name="password">meatdungeon</param>
+      </connection>
+      </authorize>
+      </user-mapping>
 
 - name: Start and Enable Guacamole Server
   systemd:
