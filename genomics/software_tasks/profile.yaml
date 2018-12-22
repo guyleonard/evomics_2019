@@ -32,4 +32,4 @@
     backup: yes
     mode: 0644
   become: yes
-  become_user: '{{ workshop_user }}''
+  become_user: '{{ workshop_user }}'
