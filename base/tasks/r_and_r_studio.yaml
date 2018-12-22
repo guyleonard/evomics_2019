@@ -3,7 +3,7 @@
     name: '{{ packages }}'
     state: present
   vars:
-    items:
+    packages:
       - gdebi-core
       - libapparmor1
 
@@ -24,7 +24,7 @@
     install_recommends: yes
     update_cache: yes
   vars:
-    items:
+    packages:
       - r-base
       - r-base-dev
 
@@ -33,7 +33,7 @@
     name: '{{ packages }}'
     state: present
   vars:
-    items:
+    packages:
       - r-cran-ggplot2
       - r-recommended
 
