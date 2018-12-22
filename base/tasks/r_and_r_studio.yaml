@@ -1,0 +1,54 @@
+- name: Install R Dependcy Packages
+  apt:
+    name: '{{item}}'
+    state: present
+  vars:
+    items:
+      - gdebi-core
+      - libapparmor1
+
+- name: Adding R Repository
+  apt_repository:
+    repo: 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+    state: present
+
+- name: Adding R GPG Key
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: E084DAB9
+
+- name: Installing R
+  apt:
+    name: '{{item}}'
+    state: present
+    install_recommends: yes
+    update_cache: yes
+  vars:
+    items:
+      - r-base
+      - r-base-dev
+
+- name: Install Commonly Used R Packages
+  apt:
+    name: '{{item}}'
+    state: present
+  vars:
+    items:
+      - r-cran-ggplot2
+      - r-recommended
+
+- name: Download Rstudio Server
+  get_url:
+    url: 'https://download2.rstudio.org/rstudio-server-1.1.463-amd64.deb'
+    dest: '{{ source_dir }}/rstudio-server-1.1.463-amd64.deb'
+
+- name: Installing Rstudio Server
+  shell: gdebi -n {{source_dir}}/rstudio-server-1.1.463-amd64.deb
+
+- name: Download Rstudio Desktop
+  get_url:
+    url: 'https://download1.rstudio.org/rstudio-xenial-1.1.463-amd64.deb'
+    dest: '{{ source_dir }}/rstudio-xenial-1.1.463-amd64.deb'
+
+- name: Installing Rstudio Desktop
+  shell: gdebi -n {{source_dir}}/rstudio-xenial-1.1.463-amd64.deb

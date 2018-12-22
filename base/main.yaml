@@ -130,6 +130,10 @@
         install_recommends: yes
       tags: firefox
 
+    - name: Install R and R Studio Server/Dektop
+      include: tasks/r_and_r_studio.yaml
+      tags: r
+
     # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
       apt:
