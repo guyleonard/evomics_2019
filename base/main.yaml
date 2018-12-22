@@ -134,8 +134,8 @@
       include: tasks/r_and_r_studio.yaml
       tags: r
 
-    - include: profile stuff
-      name: tasks/profile.yaml
+    - name: profile stuff
+      include: tasks/profile.yaml
       tags: alias, profile
 
     # Upgrade and Dist-Upgrade apt
