@@ -1,6 +1,6 @@
 - name: Install R Dependcy Packages
   apt:
-    name: '{{item}}'
+    name: '{{ packages }}'
     state: present
   vars:
     items:
@@ -19,7 +19,7 @@
 
 - name: Installing R
   apt:
-    name: '{{item}}'
+    name: '{{ packages }}'
     state: present
     install_recommends: yes
     update_cache: yes
@@ -30,7 +30,7 @@
 
 - name: Install Commonly Used R Packages
   apt:
-    name: '{{item}}'
+    name: '{{ packages }}'
     state: present
   vars:
     items:
