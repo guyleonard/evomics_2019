@@ -36,7 +36,6 @@
     update_cache: yes
   vars:
     packages:
-      - r-cran-ggplot2
       - r-recommended
 
 - name: Download Rstudio Server
