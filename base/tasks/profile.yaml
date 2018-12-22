@@ -1,9 +1,13 @@
 - name: A bunch of aliasses I like to include
-  copy: src="{{playbook_dir}}/files/bash_aliases" dest=/home/master/.bash_aliases
-  become: true
+  copy:
+    src: '{{ playbook_dir }}/files/bash_aliases'
+    dest: '/home/master/.bash_aliases'
+  become: yes
   become_user: master 
 
 - name: Change bash PS1 promt colour etc
-  copy: src="{{playbook_dir}}/files/bash_profile" dest=/home/master/.bash_profile
-  become: true
+  copy:
+    src: '{{ playbook_dir }}/files/bash_profile'
+    dest: '/home/master/.bash_profile'
+  become: yes
   become_user: master

@@ -1,0 +1,7 @@
+# source bash_aliases at login / shell
+if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+      fi
+
+# change bash PS1 styling
+export PS1="\[\033[38;5;1m\]\u\[\033[38;5;15m\]@\[\033[38;5;1m\]\h\[\033[38;5;15m\]:\[\033[38;5;1m\]\w\[\033[38;5;15m\]\\$ "
