@@ -52,6 +52,12 @@
       apt: name=overlay-scrollbar state=absent purge=yes
       tags: overlay
 
+    - name: Remove Update Manager Notifications
+      apt:
+        name: update-manager
+        state: absent
+      tags: update-manager
+
     # Install Other Dependencies and Software
     - name: Installing Other Useful Software - This may take some time...Beer O'clock!
       apt:
@@ -101,11 +107,6 @@
       include: tasks/xrdp.yaml
       tags: xrdp
 
-    # Install VNC
-    #- name: VNC
-    #  include: tasks/vnc.yaml
-    #  tags: vnc
-
     - name: MariaDB
       include: tasks/mariadb.yaml
       tags: mysql, mariadb
@@ -117,6 +118,17 @@
     - name: Guacamole
       include: tasks/guacamole.yaml
       tags: guacamole
+
+    - name: Google Chrome
+      include: tasks/chrome.yaml
+      tags: chrome
+     
+    - name: Installing Firefox
+      apt:
+        name: firefox
+        state: present
+        install_recommends: yes
+      tags: firefox
 
     # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
