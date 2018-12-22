@@ -32,6 +32,8 @@
   apt:
     name: '{{ packages }}'
     state: present
+    install_recommends: yes
+    update_cache: yes
   vars:
     packages:
       - r-cran-ggplot2
