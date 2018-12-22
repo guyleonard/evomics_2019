@@ -95,7 +95,7 @@
     dest: /etc/guacamole/user-mapping.xml
     content: |
       <user-mapping>
-      <authorize username="guac_user" password="guacdungeon">
+      <authorize username="guac_user" password="{{ guac_password }}">
       <connection name="Terminal">
       <protocol>ssh</protocol>
       <param name="hostname">localhost</param>
