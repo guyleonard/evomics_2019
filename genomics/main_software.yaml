@@ -1,0 +1,65 @@
+- hosts: all
+  become: yes
+  vars:
+    - workshop_user: genomics
+    - workshop_user_password: '$6$V8e0Enrta.6$O9Jmbjx7oskaxvIp6aqDS1BrCwcvGtz8qqtibPYUtxIrfqwe7/ZdXO34WAcOXjn9KlD.w3f55gnfU4JbXG.qM.'
+    - software_dir: "/home/{{workshop_user}}/software"
+    - source_dir: "/home/{{workshop_user}}/software/.source"
+    - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
+
+  pre_tasks:
+    - name: Create {{workshop_user}} Workshop User
+      user:
+        name: '{{ workshop_user }}'
+        group: workshop
+        comment: '{{ workshop_user }} Workshop User'
+        state: present
+        shell: /bin/bash
+        password: '{{ workshop_user_password }}'
+
+    - name: Create Software Dir
+      file:
+        path: '{{ software_dir }}'
+        state: directory
+        owner: '{{ workshop_user }}'
+        group: workshop
+
+    - name: Create Software Source Dir
+      file:
+        path: '{{ source_dir }}'
+        state: directory
+        owner: '{{ workshop_user }}'
+        group: workshop
+
+    - name: Create Workshop Directory
+      file:
+        path: '{{ workshop_dir }}'
+        state: directory
+        owner: '{{ workshop_user }}'
+        group: workshop
+
+    - name: Profile Info
+      include: software_tasks/profile.yaml
+      tags: alias, profile
+    
+    - name: Changing hostname to "{{workshop_user}}"
+      lineinfile: dest=/etc/hostname regexp="^ip.*" line="{{workshop_user}}"
+      tags: hostname
+
+    - name: Changing hosts to "{{workshop_user}}"
+      lineinfile: dest=/etc/hosts regexp="^127.*" line="127.0.0.1 localhost {{workshop_user}}"
+      tags: hostname
+
+  tasks:
+    # unix
+    # intro R
+    # QC
+    # alignment
+    # genomics
+    # assembly
+    # reproducible
+    # visualisation
+    # statistics
+    # transcriptomics
+    # stacks
+    # phylogenomics
