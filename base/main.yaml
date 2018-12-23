@@ -5,7 +5,7 @@
     - source_dir: "{{software_dir}}/.source"
     - mysql_root_pass: '*522F526859693BE4EBF948CA2FC0A25326CFD84E'
     - master_password: '$6$vaUtdo8oSgvGmBNO$B/0gxyOCv5b1DWGaiOTBUdZdHW5nrXZhUNw1yu8pVL5LS8Hs3DxL3/rD0aBEx9h7kNpDi73UZ3XYd7wpbXAx90'
-    - guac_password: 'pcwKXeRi$hcpB5lTAZ2qQuL/nCVOu01' #md5
+    - guac_password: 'd27b5ec9cf66d4169ec323081dc084c9' #md5
 
   pre_tasks:
     # create Directories
