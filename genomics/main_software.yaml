@@ -2,7 +2,7 @@
   become: yes
   vars:
     - workshop_user: genomics
-    - workshop_user_password: '$6$V8e0Enrta.6$O9Jmbjx7oskaxvIp6aqDS1BrCwcvGtz8qqtibPYUtxIrfqwe7/ZdXO34WAcOXjn9KlD.w3f55gnfU4JbXG.qM.'
+    - workshop_user_password: $6$V8e0Enrta.6$O9Jmbjx7oskaxvIp6aqDS1BrCwcvGtz8qqtibPYUtxIrfqwe7/ZdXO34WAcOXjn9KlD.w3f55gnfU4JbXG.qM.
     - software_dir: "/home/{{workshop_user}}/software"
     - source_dir: "/home/{{workshop_user}}/software/.source"
     - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
@@ -16,6 +16,7 @@
         state: present
         shell: /bin/bash
         password: '{{ workshop_user_password }}'
+      tags: user
 
     - name: Create Software Dir
       file:
