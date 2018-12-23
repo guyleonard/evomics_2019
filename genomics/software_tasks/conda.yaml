@@ -22,7 +22,7 @@
 - name: Installing Miniconda {{version}}
   shell: '{{ source_dir }}/Miniconda{{version}}-latest-Linux-x86_64.sh -b -p {{ prefix }}{{ version }} creates={{ prefix }}{{ version }} executable=/bin/bash'
   register: miniconda_installed
-  when: get_url_result | success
+  when: get_url_result is success
   
 - name: Adding Miniconda {{version}} to PATH
   lineinfile:
@@ -31,7 +31,7 @@
     backup: yes
     regexp: "PATH=((?!.*?{{ prefix }}{{ version }}/bin).*?)$"
     line: "PATH=\\1:{{ prefix }}{{ version }}/bin"
-  when: miniconda_installed | success
+  when: miniconda_installed is success
 
 - name: Updating Miniconda {{ version }}
   shell: '{{ prefix }}{{ version }}/bin/conda update conda'
