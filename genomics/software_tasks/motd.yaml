@@ -22,7 +22,7 @@
   copy:
     src: '{{ playbook_dir }}/files/motd/00-header'
     dest: /etc/update-motd.d/00-header
-    mode:0755
+    mode: 0755
 
 - name: Remove MOTD File
   file:
