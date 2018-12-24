@@ -3,6 +3,7 @@
   vars:
     - workshop_user: genomics
     - workshop_user_password: '$6$PllDTv0UD$4DmrifwT2tO/Ve.QF1EpWMf17QAtmjz9hcV/s/S71O8rXf3Yyd4ZIWCkelkQNCG6D0bsAkl9/YBSD87cBSfgS1'
+    - workshop_user_password_md5: 3d7d6d2c98be10d5bea507fe383604b9
     - software_dir: "/home/{{workshop_user}}/software"
     - source_dir: "/home/{{workshop_user}}/software/.source"
     - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
@@ -43,13 +44,17 @@
       include: software_tasks/profile.yaml
       tags: alias, profile
     
-    - name: Changing hostname to "{{workshop_user}}"
+    - name: Changing hostname to {{ workshop_user }}
       lineinfile: dest=/etc/hostname regexp="^ip.*" line="{{workshop_user}}"
       tags: hostname
 
-    - name: Changing hosts to "{{workshop_user}}"
+    - name: Changing hosts to {{ workshop_user }}
       lineinfile: dest=/etc/hosts regexp="^127.*" line="127.0.0.1 localhost {{workshop_user}}"
       tags: hostname
+
+    - name: Guacamole {{ workshop_user }}
+      include: software_tasks/guacamole_user.yaml
+      tags: guacamole
 
   tasks:
     # shared

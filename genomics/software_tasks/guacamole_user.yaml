@@ -1,0 +1,41 @@
+# create user-mapping.xml
+- name: Create {{ workshop_user }} user-mapping.xml
+  lineinfile:
+    dest: /etc/guacamole/user-mapping.xml
+    backrefs: yes
+    backup: yes
+    regexp: "</user-mapping>"
+    line: |
+      <authorize username="{{ workshop_user }}" password="{{ workshop_user_password_md5 }}" encoding="md5">
+      <connection name="Terminal">
+      <protocol>ssh</protocol>
+      <param name="hostname">localhost</param>
+      <param name="port">22</param>
+      <param name="username">{{ workshop_user }}</param>
+      <param name="color-scheme">green-black</param>
+      <param name="enable-sftp">true</param>
+      </connection>
+      <connection name="Desktop">
+      <protocol>rdp</protocol>
+      <param name="hostname">localhost</param>
+      <param name="port">3389</param>
+      <param name="username">{{ workshop_user }}</param>
+      <param name="resize-method">display-update</param>
+      <param name="enable-wallpaper">true</param>
+      </connection>
+      </authorize>
+      </user-mapping>
+
+- name: Start and Enable Guacamole Server
+  systemd:
+    name: guacd
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Restart Tomcat8
+  systemd:
+    name: tomcat8
+    state: restarted
+    enabled: yes
+  become: yes
