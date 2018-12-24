@@ -52,6 +52,18 @@
       lineinfile: dest=/etc/hosts regexp="^127.*" line="127.0.0.1 localhost {{workshop_user}}"
       tags: hostname
 
+    - name: Hostname
+      include: software_tasks/hostname.yaml
+      tags: hostname
+
+    - name: Message of the Day
+      include: software_tasks/motd.yaml
+      tags: motd
+
+    - name: Desktop
+      include: software_tasks/desktop.yaml
+      tags: desktop
+
     - name: Guacamole {{ workshop_user }}
       include: software_tasks/guacamole_user.yaml
       tags: guacamole
