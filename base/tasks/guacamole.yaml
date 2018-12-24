@@ -95,7 +95,7 @@
     dest: /etc/guacamole/user-mapping.xml
     content: |
       <user-mapping>
-      <authorize username="master" password="{{ master_password_md5 }}" encoding="md5">
+      <authorize username="master" password="test">
       <connection name="Terminal">
       <protocol>ssh</protocol>
       <param name="hostname">localhost</param>
