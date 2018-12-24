@@ -4,5 +4,5 @@
 - name: Setting {{ workshop_user }} as Hostname
   replace:
     dest: '/etc/bash.bashrc'
-    regexp: '\h:' replace='$NICKNAME:'
+    regexp: "\h:' replace='$NICKNAME:"
     backup: yes
