@@ -56,7 +56,7 @@
 
 - name: Copying Terminal Launcher
   copy:
-    src: {{playbook_dir}}/files/shortcuts/Terminal.desktop'
+    src: '{{ playbook_dir }}/files/shortcuts/Terminal.desktop'
     dest: /home/{{ workshop_user }}/Desktop/Terminal.desktop'
     mode: 0755
   become: true
