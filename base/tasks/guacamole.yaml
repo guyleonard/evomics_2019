@@ -108,10 +108,8 @@
       <protocol>rdp</protocol>
       <param name="hostname">localhost</param>
       <param name="port">3389</param>
-      <param name="username">$${GUAC_USERNAME}</param>
-      <param name="password">$${GUAC_PASSWORD}</param>
+      <param name="username">master</param>
       <param name="resize-method">display-update</param>
-      <param name="enable-sftp">true</param>
       <param name="enable-wallpaper">true</param>
       </connection>
       </authorize>
