@@ -7,12 +7,12 @@
   become_user: '{{ workshop_user }}'
  
 - name: Setting Desktop Background
-  shell: "gsettings set org.mate.desktop.background picture-uri '/home/{{workshop_user}}/.desktop_background.jpg'"
+  shell: "dconf write /org/mate/desktop/background/picture-filename '/home/{{workshop_user}}/.desktop_background.jpg'"
   become: true
   become_user: '{{ workshop_user }}'
 
 - name: Setting Desktop Background Scaling
-  shell: "gsettings set org.mate.background picture-options 'scaled'"
+  shell: "dbus-launch gsettings set org.mate.background picture-options 'scaled'"
   become: true
   become_user: '{{ workshop_user }}'
 
