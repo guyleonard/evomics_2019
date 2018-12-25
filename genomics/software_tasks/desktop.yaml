@@ -1,7 +1,7 @@
 - name: Copying Desktop Background
   copy:
     src: '{{ playbook_dir }}/files/desktop_background.png'
-    dest: '/home/{{ workshop_user }}/.desktop_background.jpg'
+    dest: '/home/{{ workshop_user }}/.desktop_background.png'
     mode: 0755
   become: true
   become_user: '{{ workshop_user }}'
