@@ -7,7 +7,7 @@
   become_user: '{{ workshop_user }}'
  
 - name: Setting Desktop Background
-  shell: "dconf write /org/mate/desktop/background/picture-filename \\"'/home/{{workshop_user}}/.desktop_background.png'\\""
+  shell: "dconf write /org/mate/desktop/background/picture-filename \\"\\'/home/{{workshop_user}}/.desktop_background.png\\'\\""
   become: true
   become_user: '{{ workshop_user }}'
 
