@@ -101,8 +101,10 @@
     - name: Bioconda
       include: software_tasks/bioconda.yaml version=3 prefix=/home/genomics/miniconda
       tags: general, conda, bioconda, qiime, qiime2
+
     # unix
     # intro R
+
     # QC
     - name: FastQC
       include: software_tasks/fastqc.yaml version=0.11.8
@@ -123,6 +125,10 @@
       tags: bbmap, qc
 
     # alignment
+    - name: minimap2
+      include: software_tasks/minimap2.yaml
+      tags: minimap, alignment
+
     # genomics
     # assembly
     # reproducible

@@ -1,0 +1,16 @@
+- name: Cloning minimap2
+  git:
+    repo: 'https://github.com/lh3/minimap2.git'
+    dest: '{{ source_dir }}/minimap'
+    clone: yes
+    update: yes
+
+- name: Running make for minimap2
+  make:
+    chdir: '{{ source_dir }}/minimap2'
+
+- name: Copying minimap2 to /usr/local/bin
+  copy:
+    src: '{{ source_dir }}/minimap/minimap'
+    dest: '/usr/local/bin/minimap2'
+    mode: 0755
