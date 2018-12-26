@@ -11,6 +11,6 @@
 
 - name: Copying minimap2 to /usr/local/bin
   copy:
-    src: '{{ source_dir }}/minimap/minimap'
+    src: '{{ source_dir }}/minimap2/minimap2'
     dest: '/usr/local/bin/minimap2'
     mode: 0755
