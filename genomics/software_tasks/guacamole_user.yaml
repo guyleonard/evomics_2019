@@ -21,7 +21,6 @@
       <param name="port">3389</param>
       <param name="username">{{ workshop_user }}</param>
       <param name="resize-method">display-update</param>
-      <param name="enable-wallpaper">true</param>
       </connection>
       </authorize>
       </user-mapping>
