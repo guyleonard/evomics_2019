@@ -135,9 +135,11 @@
     # visualisation
     # statistics
     # transcriptomics
+
     # microbiome
     - name: QIIME2
       include: software_tasks/qiime_env.yaml
-      tags: qiime, qiime2 
+      tags: qiime, qiime2
+      
     # stacks
     # phylogenomics
