@@ -1,0 +1,15 @@
+- name: Checking for previous QIIME2 Installation
+  stat:
+    path: '/home/{{workshop_user}}/miniconda3/envs/qiime2-2018.11'
+  register: qiime2_env_installed
+
+- name: Get QIIME2 Installation Yaml
+  get_url:
+    url: 'https://data.qiime2.org/distro/core/qiime2-2018.11-py35-linux-conda.yml'
+    dest: '{{ source_dir }}/qiime2-2018.11-py35-linux-conda.yml'
+
+- name: Install QIIME2 with Conda and Yaml
+  shell: "/home/{{workshop_user}}/miniconda3/bin/conda env create -n qiime2-2018.11 --file {{ source_dir }}/qiime2-2018.11-py35-linux-conda.yml"
+  become: true
+  become_user: '{{ workshop_user }}'
+  when: qiime2_env_installed.stat.exists == false

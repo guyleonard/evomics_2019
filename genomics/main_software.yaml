@@ -73,13 +73,13 @@
     - name: Installing BioPerl
       cpanm:
         name: CJFIELDS/BioPerl-1.007001.tar.gz
-      tags: general, alignment, assembly, genomics, seqdqc, bioperl
+      tags: general, alignment, assembly, genomics, qc, bioperl
 
     - name: Installing BioPython
       pip:
         name: biopython
         state: present
-      tags: general, alignment, assembly, genomics, seqdqc, biopython
+      tags: general, alignment, assembly, genomics, qc, biopython
 
     - name: Installing bamtools
       apt:
@@ -92,7 +92,7 @@
           - libbamtools2.4.0
           - pbbamtools
           - sra-toolkit
-      tags: general, alignment, assembly, genomics, seqdqc, transcriptomics
+      tags: general, alignment, assembly, genomics, qc, transcriptomics
 
     - name: Conda 3.0
       include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
@@ -136,6 +136,8 @@
     # statistics
     # transcriptomics
     # microbiome
-
+    - name: QIIME2
+      include: software_tasks/qiime_env.yaml
+      tags: qiime, qiime2 
     # stacks
     # phylogenomics
