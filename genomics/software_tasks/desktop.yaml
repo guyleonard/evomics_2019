@@ -42,3 +42,19 @@
     state: link
   become: true
   become_user: '{{ workshop_user }}'
+
+- name: Copying Icons
+  copy:
+    src: '{{ item }}'
+    dest: '/home/{{ workshop_user }}/.icons/'
+    mode: 0755
+  with_fileglob:
+    - '{{ playbook_dir }}/files/icons/*'
+
+- name: Copying FastQC Launcher
+  copy:
+    src: '{{ playbook_dir }}/files/shortcuts/FastQC.desktop'
+    dest: '/home/{{ workshop_user }}/Desktop/FastQC.desktop'
+    mode: 0755
+  become: true
+  become_user: '{{ workshop_user }}'
