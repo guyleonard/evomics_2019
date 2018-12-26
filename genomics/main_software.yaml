@@ -138,8 +138,8 @@
 
     # microbiome
     - name: QIIME2
-      include: software_tasks/qiime_env.yaml
+      include: software_tasks/qiime2_env.yaml
       tags: qiime, qiime2
-      
+
     # stacks
     # phylogenomics
