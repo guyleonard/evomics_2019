@@ -10,7 +10,7 @@
 - name: Uncompressing FASTQ
   unarchive: 
     src: '{{ source_dir }}/fastqc_v{{ version }}.zip'
-    dest: '{{ software_dir }}''
+    dest: '{{ software_dir }}'
     copy: no
     creates: '{{ software_dir }}/FastQC/fastqc'
     
