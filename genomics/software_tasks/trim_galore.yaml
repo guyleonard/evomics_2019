@@ -1,6 +1,6 @@
 - name: Download Trim Galore! {{ version }}
   get_url:
-    ur: 'https://github.com/FelixKrueger/TrimGalore/archive/{{ version}}.zip'
+    url: 'https://github.com/FelixKrueger/TrimGalore/archive/{{ version}}.zip'
     dest: '{{ source_dir }}/trim_galore_v{{ version }}.zip'
 
 - name: Unzip Trim Galore!
