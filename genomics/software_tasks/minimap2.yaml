@@ -1,7 +1,7 @@
 - name: Cloning minimap2
   git:
     repo: 'https://github.com/lh3/minimap2.git'
-    dest: '{{ source_dir }}/minimap'
+    dest: '{{ source_dir }}/minimap2'
     clone: yes
     update: yes
 
