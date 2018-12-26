@@ -117,7 +117,10 @@
     - name: Trim Galore!
       include: software_tasks/trim_galore.yaml version=0.5.0
       tags: trim_galore, qc
-    
+
+    - name: BBMap
+      include: software_tasks/bbmap.yaml version=38.34
+      tag: bbmap, qc
 
 
     # alignment
