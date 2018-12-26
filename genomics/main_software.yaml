@@ -114,11 +114,13 @@
         state: present
       tags: cutadapt, qc
 
-    - name: Trim Galore!
+    - name: Trim Galore
       include: software_tasks/trim_galore.yaml version=0.5.0
       tags: trim_galore, qc
-    
 
+    - name: BBMap
+      include: software_tasks/bbmap.yaml version=38.34
+      tags: bbmap, qc
 
     # alignment
     # genomics
