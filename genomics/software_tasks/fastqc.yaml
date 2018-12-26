@@ -16,7 +16,7 @@
     
 - name: chmod +x FastQC
   file:
-    path:'{{ software_dir }}/FastQC/fastqc'
+    path: '{{ software_dir }}/FastQC/fastqc'
     mode: 0755
 
 - name: Installing FASTQ
