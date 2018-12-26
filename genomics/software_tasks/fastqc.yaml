@@ -14,7 +14,7 @@
     copy: no
     creates: '{{ software_dir }}/FastQC/fastqc'
     
-- name: chmod +x FastQC
+- name: "chmod +x FastQC"
   file:
     path: '{{ software_dir }}/FastQC/fastqc'
     mode: 0755
@@ -22,6 +22,6 @@
 - name: Installing FASTQ
   file:
     src: '{{ software_dir }}/FastQC/fastqc'
-    dest: /usr/bin/fastqc
+    dest: '/usr/bin/fastqc'
     state: link
     mode: 0755
