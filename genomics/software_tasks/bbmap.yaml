@@ -1,11 +1,11 @@
-- name: Download BBMap {{ version }}
+- name: Download BBMap
   get_url:
-    url: 'https://sourceforge.net/projects/bbmap/files/BBMap_{{ version}}.tar.gz'
+    url: 'https://sourceforge.net/projects/bbmap/files/BBMap_{{ version }}.tar.gz'
     dest: '{{ source_dir }}/BBMap_{{ version}}.tar.gz'
 
 - name: Unzip BBMap!
   unarchive:
-    src: '{{ source_dir }}/BBMap_{{ version}}.tar.gz'
+    src: '{{ source_dir }}/BBMap_{{ version }}.tar.gz'
     dest: '{{ software_dir }}'
     copy: no
     creates: '{{ software_dir }}/bbmap'
