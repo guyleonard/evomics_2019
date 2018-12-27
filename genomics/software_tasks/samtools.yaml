@@ -1,0 +1,24 @@
+#- name: Installing Samtools from apt - v0.1.19
+#  apt: name=samtools state=present
+#- name: Symbolic link samtools to samtools_old
+#  file: src=/usr/bin/samtools dest=/usr/bin/samtools_old state=link
+- name: Downloading Samtools
+  get_url:
+    url: 'https://github.com/samtools/samtools/releases/download/{{ version }}/samtools-{{ version }}.tar.bz2'
+    dest: '{{ source_dir }}/samtools-{{ version }}.tar.bz2'
+
+- name: Unpacking Samtools
+  unarchive:
+    src: '{{ source_dir }}/samtools-{{ version }}.tar.bz2'
+    dest: '{{ software_dir }}'
+    copy: no
+    creates: '{{ software_dir }}/samtools-{{ version }}/README'
+    
+- name: ./configure & make Samtools
+  shell: '{{ item }}'
+  args:
+   chdir: '{{ software_dir }}/samtools-{{ version }}'
+  loop:
+    - ./configure
+    - make
+    - make install

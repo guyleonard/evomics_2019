@@ -149,6 +149,10 @@
       include: software_tasks/bwa.yaml
       tags: genomics, bwa
 
+    - name: Samtools
+      include: software_tasks/samtools.yaml version=1.9
+      tags: genomics, samtools
+
     # assembly - waiting
     # reproducible - waiting
     # visualisation - R/bioconductor libs
