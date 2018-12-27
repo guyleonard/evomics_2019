@@ -39,3 +39,36 @@
 
 - name: Installing AnnotationDbi from Bioconductor
   shell: '{{ playbook_dir }}/scripts/install_bioconductor.r AnnotationDbi'
+
+- name: Installing BiocParallel from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r BiocParallel'
+
+- name: Installing biomaRt from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r biomaRt'
+
+- name: Installing BSgenome from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r BSgenome'
+
+- name: Installing BSgenome.Mmusculus.UCSC.mm9 from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r BSgenome.Mmusculus.UCSC.mm9'
+
+- name: Installing DESeq2 from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r DESeq2'
+
+- name: Installing gage from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r gage'
+
+- name: Installing GenVisR from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r GenVisR'
+
+- name: Installing orgHs.eg.db from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r orgHs.eg.db'
+
+- name: Installing pathview from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r pathview'
+
+- name: Installing rtracklayer from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r rtracklayer'
+
+- name: Installing TxDb.Mmusculus.UCSC.mm9.knownGene from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r TxDb.Mmusculus.UCSC.mm9.knownGene'
