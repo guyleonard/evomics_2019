@@ -104,6 +104,12 @@
 
     # unix - none/standard
     # intro R - standard?
+    - name: Installing littler
+      apt:
+        name: r-cran-littler
+        state: present
+      tags: r, littler
+
     # QC
     - name: FastQC
       include: software_tasks/fastqc.yaml version=0.11.8
