@@ -34,5 +34,8 @@
 - name: Installing viridis
   shell: '{{ playbook_dir }}/scripts/install.r viridis'
 
-#- name: Installing Bioconductor
-#  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite()"
+- name: Installing BiocManager
+  shell: '{{ playbook_dir }}/scripts/install.r BiocManager'
+
+- name: Installing AnnotationDbi from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r AnnotationDbi'
