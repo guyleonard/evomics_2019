@@ -72,3 +72,6 @@
 
 - name: Installing TxDb.Mmusculus.UCSC.mm9.knownGene from Bioconductor
   shell: '{{ playbook_dir }}/scripts/install_bioconductor.r TxDb.Mmusculus.UCSC.mm9.knownGene'
+
+- name: Update Bioconductor Packages
+  shell: Rscript -e "BiocManager::install(ask=FALSE)"
