@@ -96,15 +96,14 @@
 
     - name: Conda 3.0
       include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
-      tags: general, conda, qiime, qiime2
+      tags: general, condax`qiime2_env
 
     - name: Bioconda
       include: software_tasks/bioconda.yaml version=3 prefix=/home/genomics/miniconda
       tags: general, conda, bioconda, qiime, qiime2
 
-    # unix
-    # intro R
-
+    # unix - none/standard
+    # intro R - standard?
     # QC
     - name: FastQC
       include: software_tasks/fastqc.yaml version=0.11.8
@@ -129,17 +128,23 @@
       include: software_tasks/minimap2.yaml
       tags: minimap, alignment
 
-    # genomics
-    # assembly
-    # reproducible
-    # visualisation
-    # statistics
-    # transcriptomics
+    # genomics - to do
+
+    # assembly - waiting
+    # reproducible - waiting
+    # visualisation - R/bioconductor libs
+    - name: R Libraries
+      include: software_tasks/r_visualisation.yaml
+      tags: r, visualisation
+
+    # statistics - waiting
+    # transcriptomics - usually github
 
     # microbiome
     - name: QIIME2
       include: software_tasks/qiime2_env.yaml
       tags: qiime, qiime2
 
-    # stacks
-    # phylogenomics
+    # stacks - waiting
+
+    # phylogenomics - waiting

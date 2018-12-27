@@ -1,0 +1,38 @@
+- name: Installing ggdendro
+  shell: '{{ playbook_dir }}/scripts/install.r ggdendro'
+
+- name: Installing ggplot2
+  shell: '{{ playbook_dir }}/scripts/install.r ggplot2'
+
+- name: Installing gridExtra
+  shell: '{{ playbook_dir }}/scripts/install.r gridExtra'
+
+- name: Installing gtable
+  shell: '{{ playbook_dir }}/scripts/install.r gtable'
+
+- name: Installing microbenchmark
+  shell: '{{ playbook_dir }}/scripts/install.r microbenchmark'
+
+- name: Installing plyr
+  shell: '{{ playbook_dir }}/scripts/install.r plyr'
+
+- name: Installing reshape2
+  shell: '{{ playbook_dir }}/scripts/install.r reshape2'
+
+- name: Installing rsconnect
+  shell: '{{ playbook_dir }}/scripts/install.r rsconnect'
+
+- name: Installing scales
+  shell: '{{ playbook_dir }}/scripts/install.r scales'
+
+- name: Installing shiny
+  shell: '{{ playbook_dir }}/scripts/install.r shiny'
+
+- name: Installing stringr
+  shell: '{{ playbook_dir }}/scripts/install.r stringr'
+
+- name: Installing viridis
+  shell: '{{ playbook_dir }}/scripts/install.r viridis'
+
+#- name: Installing Bioconductor
+#  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite()"
