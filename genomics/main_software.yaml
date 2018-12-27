@@ -135,6 +135,7 @@
     # visualisation - R/bioconductor libs
     - name: R Libraries
       include: software_tasks/r_visualisation.yaml
+      become: yes
       tags: r, visualisation
 
     # statistics - waiting
