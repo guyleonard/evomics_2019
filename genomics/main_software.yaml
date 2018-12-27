@@ -134,7 +134,20 @@
       include: software_tasks/minimap2.yaml
       tags: minimap, alignment
 
-    # genomics - to do
+    # genomics
+    - name: Install ea-utils (fastq-mcf), trimmomatic
+      apt:
+        name: '{{ packages }}'
+        state: present
+      vars:
+        packages:
+          - ea-utils
+          - trimmomatic
+      tags: genomics, fastq-mcf, trimmomatic
+
+    - name: BWA
+      include: software_tasks/bwa.yaml
+      tags: genomics, bwa
 
     # assembly - waiting
     # reproducible - waiting
