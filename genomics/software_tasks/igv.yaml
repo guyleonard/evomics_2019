@@ -2,7 +2,7 @@
 # you should register here https://www.broadinstitute.org/software/igv/?q=registration
 - name: Downloading IGV
   get_url:
-    url: 'http://data.broadinstitute.org/igv/projects/downloads/{{ version }}/IGV_{{ version }}.zip'
+    url: 'http://data.broadinstitute.org/igv/projects/downloads/{{ major_version }}/IGV_{{ full_version }}.zip'
     dest: '{{ source_dir }}/IGV_{{ version }}.zip'
 
 - name: Uncompressing IGV
