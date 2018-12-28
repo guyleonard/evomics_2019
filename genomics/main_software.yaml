@@ -193,6 +193,29 @@
       include: software_tasks/quast.yaml version=5.0.2
       tags: assembly, genomics, quast
 
+    - name: Installing EMBOSS tools (getorf)
+      apt:
+        name: '{{ item }}'
+        state: present
+      loop:
+        - emboss
+        - emboss-data
+        - emboss-doc
+        - emboss-lib
+        - jemboss
+      tags: genomics, emboss, getorf
+
+    - name: Installing blast legacy & blast+
+      apt:
+        name: '{{ item }}'
+        state: present
+      loop:
+        - ncbi-blast+
+        - ncbi-blast+-legacy
+        - ncbi-tools-bin
+        - ncbi-tools-x11
+      tags: genomics, blast
+
     # assembly - waiting
     # reproducible - waiting
     # visualisation - R/bioconductor libs
