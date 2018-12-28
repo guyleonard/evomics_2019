@@ -1,4 +1,4 @@
-- name: Downloading Qualimap v{{version}}
+- name: Downloading Qualimap
   get_url:
     url: 'https://bitbucket.org/kokonech/qualimap/downloads/qualimap_v{{ version }}.zip'
     dest: '{{ source_dir }}/qualimap_v{{ version }}.zip'
