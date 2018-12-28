@@ -185,6 +185,9 @@
       include: software_tasks/bam2fastq.yaml version=1.1.0
       tags: genomics, bam2fastq
 
+    - main: SPAdes
+      include: software_tasks/SPAdes.yaml version=3.13.0
+      tags: genomics, spades
 
     # assembly - waiting
     # reproducible - waiting

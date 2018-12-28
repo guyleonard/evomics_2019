@@ -1,0 +1,20 @@
+- name: Downloading SPAdes
+  get_url:
+    url: 'http://cab.spbu.ru/files/release{{ version }}/SPAdes-{{ version }}-Linux.tar.gz'
+    dest: '{{ source_dir }}/SPAdes-{{ version }}-Linux.tar.gz'
+
+- name: Uncompress SPAdes
+  unarchive: 
+    src: '{{ source_dir }}/SPAdes-{{ version }}-Linux.tar.gz'
+    dest: '{{ software_dir }}'
+    copy: no
+    creates: '{{ software_dir }}/SPAdes-{{ version }}-Linux/bin/spades'
+    
+- name: Adding SPAdes to PATH
+  lineinfile:
+    dest: '/home/{{workshop_user}}/.bash_paths'
+    backrefs: yes
+    backup: yes
+    regexp: "PATH=((?!.*?/home/{{workshop_user}}/software/SPAdes-{{version}}-Linux/bin).*?)$"
+    line: "PATH=\\1:/home/{{workshop_user}}/software/SPAdes-{{version}}-Linux/bin"
+
