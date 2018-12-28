@@ -22,5 +22,10 @@
     regexp: "PATH=((?!.*?/home/{{workshop_user}}/software/quast-{{ version }}).*?)$"
     line: "PATH=\\1:/home/{{workshop_user}}/software/quast-{{ version }}"
 
+- name: Installing python-matplotlib
+  apt:
+    name: python-matplotlib
+    state: present
+
 - name: Verify QUAST Installed
   shell: python /home/{{ workshop_user }}/software/quast-{{ version }}/quast.py --test
