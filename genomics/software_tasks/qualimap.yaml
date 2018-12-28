@@ -16,7 +16,7 @@
     backrefs: yes
     backup: yes
     regexp: "PATH=((?!.*?/home/{{ workshop_user }}/software/qualimap_v{{ version }}).*?)$"
-    line: "PATH=\1:/home/{{ workshop_user }}/software/qualimap_v{{ version }}"
+    line: "PATH=\\1:/home/{{ workshop_user }}/software/qualimap_v{{ version }}"
 
 - name: Installing optparse
   shell: '{{ playbook_dir }}/scripts/install.r optparse'
