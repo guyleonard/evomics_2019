@@ -158,7 +158,7 @@
       tags: genomics, qualimap
 
     - main: IGV
-      include: software_tasks/igv.yaml version=2.4
+      include: software_tasks/igv.yaml version=2.4.16
       tags: genomics, igv
 
     - main: IGV Tools
