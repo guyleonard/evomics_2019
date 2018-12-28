@@ -9,4 +9,5 @@
   shell: '{{ item }}'
   args:
     chdir: '{{ source_dir }}/ea-utils/clipper'
-  loop: make
+  loop:
+    - make
