@@ -21,6 +21,10 @@
 - name: Installing optparse
   shell: '{{ playbook_dir }}/scripts/install.r optparse'
 
+- name: Installing libxml2-dev
+  apt: libxml2-dev
+  state: present
+
 - name: Installing XML
   shell: '{{ playbook_dir }}/scripts/install.r XML'
 
