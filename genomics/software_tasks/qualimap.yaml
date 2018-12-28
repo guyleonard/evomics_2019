@@ -21,8 +21,17 @@
 - name: Installing optparse
   shell: '{{ playbook_dir }}/scripts/install.r optparse'
 
+- name: Installing XML
+  shell: '{{ playbook_dir }}/scripts/install.r XML'
+
 - name: Installing BiocManager
   shell: '{{ playbook_dir }}/scripts/install.r BiocManager'
+
+- name: Installing Rsamtools from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r Rsamtools'
+
+- name: Installing rtracklayer from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r rtracklayer'
 
 - name: Installing NOISeq from Bioconductor
   shell: '{{ playbook_dir }}/scripts/install_bioconductor.r NOISeq'
