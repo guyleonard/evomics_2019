@@ -18,4 +18,4 @@
     dest: /usr/local/bin
     mode: 0755
   with_fileglob:
-    - '{{  source_dir  }}/ea-utils/clipper/fastq-mcf"
+    - '{{  source_dir  }}/ea-utils/clipper/fastq-mcf'
