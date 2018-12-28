@@ -216,6 +216,10 @@
         - ncbi-tools-x11
       tags: genomics, blast
 
+    - name: Other genomics scripts
+      include: software_tasks/genomics_tutorial_extras.yaml
+      tags: genomics, genomics_extras
+
     # assembly - waiting
     # reproducible - waiting
     # visualisation - R/bioconductor libs
