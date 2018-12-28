@@ -12,7 +12,7 @@
     
 - name: Adding Qualimap to PATH
   lineinfile:
-    dest: /home/{{ workshop_user }}/.bash_paths'
+    dest: '/home/{{ workshop_user }}/.bash_paths'
     backrefs: yes
     backup: yes
     regexp: "PATH=((?!.*?/home/{{ workshop_user }}/software/qualimap_v{{ version }}).*?)$"
