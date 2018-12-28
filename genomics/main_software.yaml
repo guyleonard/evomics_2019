@@ -153,9 +153,17 @@
       include: software_tasks/samtools.yaml version=1.9
       tags: genomics, samtools
 
-    - name:
+    - name: Qualimap
       include: software_tasks/qualimap.yaml version=2.2.1
       tags: genomics, qualimap
+
+    - main: IGV
+      include: software_tasks/igv.yaml version=2.4
+      tags: genomics, igv
+
+    - main: IGV Tools
+      include: software_tasks/igvtools.yaml version=2.3.80
+      tags: genomics, igvtools
 
     # assembly - waiting
     # reproducible - waiting
