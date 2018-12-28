@@ -8,7 +8,7 @@ We will be using the latest Ubuntu Linux LTS as our the OS for our initial VM, i
 We will use a series of shell scripts, [Ansible](https://www.ansible.com/) and a few other package managers such as apt-get, pip, conda, and gem to install the software, dependancies and workshop materials. This will be split into three tasks: base VM setup, genomics specific setup and phylogenomics specific setup. Each of the workshop specific tasks will be split in to softare and material sub tasks.
 
 # Using This Repository
-To build the VM for either workshop, you will need to run at least the [setup.sh]() and then both sets of ansible playbooks from either or both workshops.
+To build the VM for either workshop, you will need to run at least the [setup.sh]() and then both sets of ansible playbooks from either or both workshops. You will need to use at least a t2.medium instance to compile and install many of the libraries and dependencies. Some will seem to install on lower instances, but the errors are not caught by ansible.
 
 ## Base AMI Setup
 Log in to your virtual machine and run this code:
