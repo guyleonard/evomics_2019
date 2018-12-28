@@ -4,6 +4,7 @@
     dest: '{{ source_dir }}/ea-utils'
     clone: yes
     update: yes
+    force: yes
 
 - name: make fastq-mcf only
   shell: '{{ item }}'
