@@ -189,6 +189,10 @@
       include: software_tasks/SPAdes.yaml version=3.13.0
       tags: genomics, spades
 
+    - name: QUAST
+      include: software_tasks/quast.yaml version=5.0.2
+      tags: assembly, genomics, quast
+
     # assembly - waiting
     # reproducible - waiting
     # visualisation - R/bioconductor libs

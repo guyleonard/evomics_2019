@@ -1,0 +1,26 @@
+- name: Downloading QUAST
+  get_url:
+    url: 'https://sourceforge.net/projects/quast/files/quast-{{ version }}.tar.gz'
+    dest: '{{ source_dir }}/quast-{{version}}.tar.gz'
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+
+- name: Uncompress QUAST
+  unarchive:
+    src: '{{ source_dir }}/quast-{{ version }}.tar.gz'
+    dest: '{{ software_dir }}'
+    copy: no
+    creates: '{{ software_dir }}/quast-{{ version }}/README.txt'
+
+- name: Adding QUAST to PATH
+  lineinfile:
+    dest: '/home/{{workshop_user}}/.bash_paths'
+    backrefs: yes
+    backup: yes
+    regexp: "PATH=((?!.*?/home/{{workshop_user}}/software/quast-4.2).*?)$"
+    line: "PATH=\\1:/home/{{workshop_user}}/software/quast-4.2"
+
+- name: Verify QUAST Installed
+  shell: python /home/{{ workshop_user }}/software/quast-{{ version }}/quast.py --test
