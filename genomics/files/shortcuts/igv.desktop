@@ -6,6 +6,6 @@ Type=Application
 Terminal=false
 Icon[en_US]=mate-panel-launcher
 Name[en_US]=IGV
-Exec=/home/genomics/software/IGV_2.4/igv.sh
+Exec=/home/genomics/software/IGV_2.4.16/igv.sh
 Name=IGV
 Icon=/home/genomics/.icons/igv.jpg
