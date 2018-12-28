@@ -1,0 +1,19 @@
+- name: Downloading bcftools
+  get_url:
+    url: 'https://github.com/samtools/bcftools/releases/download/{{ version }}/bcftools-{{ version }}.tar.bz2'
+    dest: '{{ source_dir }}/bcftools-{{ version }}.tar.bz2'
+  
+- name: Unpacking bcftools
+  unarchive:
+    src: '{{ source_dir }}/bcftools-{{ version }}.tar.bz2'
+    dest: '{{ software_dir }}'
+    copy: no
+    creates: '{{ software_dir }}/bcftools-{{version}}/README'
+    
+- name: make bcftools
+  shell: '{{ item }}'
+  args:
+   chdir: '{{ software_dir }}/bcftools-{{ version }}'
+  loop:
+    - make
+    - make install

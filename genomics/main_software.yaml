@@ -165,6 +165,10 @@
       include: software_tasks/igvtools.yaml major_version=2.4 full_version=2.4.16
       tags: genomics, igvtools
 
+    - main: BCFTools
+      include: software_tasks/bcftools.yaml version=1.9
+      tags: genomics, bcftools
+
     # assembly - waiting
     # reproducible - waiting
     # visualisation - R/bioconductor libs
