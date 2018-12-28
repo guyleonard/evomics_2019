@@ -169,6 +169,23 @@
       include: software_tasks/bcftools.yaml version=1.9
       tags: genomics, bcftools
 
+    - name: Installing vcftools
+      apt:
+        name: vcftools
+        state: present
+      tags: genomics, vcftools
+
+    - name: Install bedtools
+      apt:
+        name: bedtools
+        state: present
+      tags: genomics, bedtools
+
+    - name: bam2fastq
+      include: software_tasks/bam2fastq.yaml version=1.1.0
+      tags: genomics, bam2fastq
+
+
     # assembly - waiting
     # reproducible - waiting
     # visualisation - R/bioconductor libs
