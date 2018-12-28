@@ -1,0 +1,31 @@
+- name: Downloading Qualimap v{{version}}
+  get_url:
+    url: 'https://bitbucket.org/kokonech/qualimap/downloads/qualimap_v{{ version }}.zip'
+    dest: '{{ source_dir }}/qualimap_v{{ version }}.zip'
+
+- name: Uncompress Qualimap
+  unarchive: 
+    src: '{{ source_dir }}/qualimap_v{{version}}.zip'
+    dest: '{{ software_dir }}'
+    copy: no
+    creates: '{{ software_dir }}/qualimap_v{{ version }}/qualimap'
+    
+- name: Adding Qualimap to PATH
+  lineinfile:
+    dest: /home/{{ workshop_user }}/.bash_path'
+    backrefs: yes
+    backup: yes
+    regexp: "PATH=((?!.*?/home/{{ workshop_user }}/software/qualimap_v{{ version }}).*?)$"
+    line: "PATH=\1:/home/{{ workshop_user }}/software/qualimap_v{{ version }}"
+
+- name: Installing optparse
+  shell: '{{ playbook_dir }}/scripts/install.r optparse'
+
+- name: Installing BiocManager
+  shell: '{{ playbook_dir }}/scripts/install.r BiocManager'
+
+- name: Installing NOISeq from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r NOISeq'
+
+- name: Installing Repitools from Bioconductor
+  shell: '{{ playbook_dir }}/scripts/install_bioconductor.r Repitools'

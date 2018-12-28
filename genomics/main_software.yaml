@@ -153,6 +153,10 @@
       include: software_tasks/samtools.yaml version=1.9
       tags: genomics, samtools
 
+    - name:
+      include: software_tasks/qualimap.yaml version=2.2.1
+      tags: genomics, qualimap
+
     # assembly - waiting
     # reproducible - waiting
     # visualisation - R/bioconductor libs
