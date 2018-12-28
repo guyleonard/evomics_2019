@@ -78,6 +78,9 @@
           - filezilla
           - fortune-mod
           - gconf2
+          - gsl-bin
+          - libgsl-dev 
+          - libsparsehash-dev
           - lolcat
           - m4
           - make

@@ -5,9 +5,17 @@
     clone: yes
     update: yes
 
-- name: make
+- name: make fastq-mcf only
   shell: '{{ item }}'
   args:
     chdir: '{{ source_dir }}/ea-utils/clipper'
   loop:
-    - make
+    - make fastq-mcf
+
+- name: Copying fastq-mcf
+  copy:
+    src: '{{ item }}'
+    dest: /usr/local/bin
+    mode: 0755
+  with_fileglob:
+    - '{{  source_dir  }}/ea-utils/clipper/fastq-mcf"
