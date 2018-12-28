@@ -141,7 +141,7 @@
         state: present
       vars:
         packages:
-          - ea-utils
+          #- ea-utils
           - trimmomatic
       tags: genomics, fastq-mcf, trimmomatic
 
