@@ -1,0 +1,22 @@
+# IGV is licensed
+# you should register here https://www.broadinstitute.org/software/igv/?q=registration
+- name: Downloading IGV Tools v{{version}}
+  get_url:
+    url: 'http://data.broadinstitute.org/igv/projects/downloads/{{ major_version }}/igvtools_{{ full_version }}.zip'
+    dest: '{{ source_dir }}/igvtools_{{ full_version }}.zip'
+
+- name: Uncompress IGV Tools
+  unarchive: 
+    src: '{{ source_dir }}/igvtools_{{ full_version }}.zip'
+    dest: '{{ software_dir }}'
+    copy: no
+    creates: '{{ software_dir }}/IGVTools/igvtools'
+    
+- name: Install IGV Tools
+  lineinfile:
+    dest: '/home/{{ workshop_user }}/.bash_paths'
+    backrefs: yes
+    backup: yes
+    regexp: "PATH=((?!.*?/home/{{ workshop_user }}/software/IGVTools/).*?)$"
+    line: "PATH=\\1:/home/{{ workshop_user }}/software/IGVTools/"
+  
