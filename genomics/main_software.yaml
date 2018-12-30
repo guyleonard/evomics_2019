@@ -106,8 +106,12 @@
     # intro R - standard?
     - name: Installing littler
       apt:
-        name: r-cran-littler
+        name: '{{ packages }}'
         state: present
+      vars:
+        packages:
+          - r-cran-littler
+          - littler
       tags: r, littler, r_introduction
 
     - name: Installing LaTeX & pandoc
