@@ -110,6 +110,22 @@
         state: present
       tags: r, littler
 
+    - name: Installing LaTeX & pandoc
+      apt:
+        name: '{{ packages }}'
+        state: present
+      vars:
+        packages:
+          - texlive-full
+          - texlive-science
+          - pandoc
+
+    - name: R Libraries
+      include: software_tasks/r_introduction.yaml
+      become: yes
+      tags: r, r_introduction
+    - name: 
+
     # QC
     - name: FastQC
       include: software_tasks/fastqc.yaml version=0.11.8

@@ -1,0 +1,14 @@
+- name: Installing ggplot2
+  shell: '{{ playbook_dir }}/scripts/install.r ggplot2'
+
+- name: Installing rmarkdown
+  shell: '{{ playbook_dir }}/scripts/install.r rmarkdown'
+
+- name: Installing nlme
+  shell: '{{ playbook_dir }}/scripts/install.r nlme'
+
+- name: Installing lme4
+  shell: '{{ playbook_dir }}/scripts/install.r lme4'
+
+- name: Installing vegan
+  shell: '{{ playbook_dir }}/scripts/install.r vegan'
