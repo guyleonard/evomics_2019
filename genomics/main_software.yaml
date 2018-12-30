@@ -108,7 +108,7 @@
       apt:
         name: r-cran-littler
         state: present
-      tags: r, littler
+      tags: r, littler, r_introduction
 
     - name: Installing LaTeX & pandoc
       apt:
@@ -119,12 +119,12 @@
           - texlive-full
           - texlive-science
           - pandoc
+      tags: r, r_introduction
 
     - name: R Libraries
       include: software_tasks/r_introduction.yaml
       become: yes
       tags: r, r_introduction
-    - name: 
 
     # QC
     - name: FastQC
