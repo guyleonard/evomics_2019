@@ -1,0 +1,36 @@
+- name: Cloning Trinity
+  git:
+    repo: 'https://github.com/trinityrnaseq/trinityrnaseq.git'
+    dest: '{{ source_dir }}/trinityrnase'
+    clone: yes
+    recursive: yes
+    update: yes
+    version: devel
+
+- name: Trinitiy - Running make
+  make:
+    chdir: '{{ source_dir }}/trinityrnaseq'
+
+- name: Adding Trinity to PATH
+  lineinfile:
+    dest: '{{ install_dir }}/.bash_paths'
+    backrefs: yes
+    backup: yes
+    regexp: "PATH=((?!.*?{{source_dir}}/trinityrnaseq).*?)$"
+    line: "PATH=\\1:{{source_dir}}/trinityrnaseq"
+
+- name: Adding TRINITY_HOME to .bash_paths
+  lineinfile:
+    dest: '{{install_dir}}/.bash_paths'
+    line: 'export TRINITY_HOME={{ source_dir }}/trinityrnaseq'
+    backup: yes
+
+- name: EXPORT for TRINITY_HOME for current session
+  shell: 'export TRINITY_HOME={{ source_dir }}/trinityrnaseq'
+
+- name: Changing root user:group to {{workshop_user}}:workshop
+  file:
+    path: '{{ source_dir }}/trinityrnaseq'
+    owner: '{{ workshop_user }}'
+    group: workshop
+    recurse: yes

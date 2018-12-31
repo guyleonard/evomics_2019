@@ -253,7 +253,10 @@
 
     # statistics - waiting
     ## I put most of this in R Intro
+
     # transcriptomics - usually github
+    - include: software_tasks/trinity.yaml
+      tags: trinity, transcriptomics
 
     # microbiome
     - name: QIIME2
