@@ -14,14 +14,17 @@
 # entirely restrictive and non-standard license in 2016 is unknown.
 # It's not 1996, guys. :) Skål.
 
-- name: Downloading CBS Software - SignalP, TMHMM, RNAmmer
-  get_url:
-    url: 'https://s3.amazonaws.com/2019evomics/cbs_programs.tar.gz'
-    dest=: '{{ source_dir }}/cbs_programs.tar.gz'
-  register: get_url_result
-  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
-  retries: 5
-  delay: 10
+#- name: Downloading CBS Software - SignalP, TMHMM, RNAmmer
+#  get_url:
+#    url: 'https://s3.amazonaws.com/2019evomics/cbs_programs.tar.gz'
+#    dest=: '{{ source_dir }}/cbs_programs.tar.gz'
+#  register: get_url_result
+#  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+#  retries: 5
+#  delay: 10
+
+- name: Downloading CBS Software - via wget
+  shell: 'wget https://s3.amazonaws.com/2019evomics/cbs_programs.tar.gz {{ source_dir }}/cbs_programs.tar.gz'
 
 - name: Uncompressing CBS Software
   unarchive:
