@@ -13,15 +13,15 @@
 
 - name: Adding Trinity to PATH
   lineinfile:
-    dest: '{{ install_dir }}/.bash_paths'
+    dest: '/home/{{ workshop_user }}/.bash_paths'
     backrefs: yes
     backup: yes
-    regexp: "PATH=((?!.*?{{source_dir}}/trinityrnaseq).*?)$"
-    line: "PATH=\\1:{{source_dir}}/trinityrnaseq"
+    regexp: "PATH=((?!.*?{{ source_dir }}/trinityrnaseq).*?)$"
+    line: "PATH=\\1:{{ source_dir }}/trinityrnaseq"
 
 - name: Adding TRINITY_HOME to .bash_paths
   lineinfile:
-    dest: '{{install_dir}}/.bash_paths'
+    dest: '/home/{{ workshop_user }}/.bash_paths'
     line: 'export TRINITY_HOME={{ source_dir }}/trinityrnaseq'
     backup: yes
 
