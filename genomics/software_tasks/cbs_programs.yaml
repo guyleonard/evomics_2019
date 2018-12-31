@@ -187,7 +187,8 @@
 - name: Fixing core-rnammer cpu
   replace:
     dest: '{{ software_dir }}/rnammer/core-rnammer'
-    regexp: '--cpu 1 ' replace=''
+    regexp: '--cpu 1 '
+    replace: ''
     backup: yes
 
 - name: Adding RNAmmer to PATH
