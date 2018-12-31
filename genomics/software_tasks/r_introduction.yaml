@@ -12,3 +12,6 @@
 
 - name: Installing vegan
   shell: '{{ playbook_dir }}/scripts/install.r vegan'
+
+- name: Installing tidyverse
+  shell: '{{ playbook_dir }}/scripts/install.r tidyverse'
