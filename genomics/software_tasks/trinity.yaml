@@ -1,7 +1,7 @@
 - name: Cloning Trinity
   git:
     repo: 'https://github.com/trinityrnaseq/trinityrnaseq.git'
-    dest: '{{ source_dir }}/trinityrnase'
+    dest: '{{ source_dir }}/trinityrnaseq'
     clone: yes
     recursive: yes
     update: yes
