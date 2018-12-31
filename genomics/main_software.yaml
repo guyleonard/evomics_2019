@@ -258,6 +258,9 @@
     - include: software_tasks/trinity.yaml
       tags: trinity, transcriptomics
 
+    - include: software_tasks/trinotate.yaml
+      tags: transcriptomics, trinotate, transdecoder      
+
     # microbiome
     - name: QIIME2
       include: software_tasks/qiime2_env.yaml
