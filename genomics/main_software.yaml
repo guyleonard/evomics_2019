@@ -261,6 +261,9 @@
     - include: software_tasks/trinotate.yaml
       tags: transcriptomics, trinotate, transdecoder      
 
+    - include: software_tasks/cbs_programs.yaml
+      tags: trinity, cbs, signalp, tmhmm, rnammer, transcriptomics
+
     # microbiome
     - name: QIIME2
       include: software_tasks/qiime2_env.yaml
