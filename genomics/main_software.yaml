@@ -261,5 +261,7 @@
       tags: qiime, qiime2
 
     # stacks - waiting
+    - include: software_tasks/stacks.yaml version=2.2
+      tags: radseq, stacks
 
     # phylogenomics - waiting

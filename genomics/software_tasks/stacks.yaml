@@ -1,0 +1,39 @@
+- name: Downloading Stacks
+  get_url:
+    url: 'http://catchenlab.life.illinois.edu/stacks/source/stacks-{{ version }}.tar.gz'
+    dest: '{{ source_dir }}/stacks-{{ version }}.tar.gz'
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+  ignore_errors: yes
+
+- name: Uncompress Stacks
+  unarchive:
+    src: '{{ source_dir }}/stacks-{{ version }}.tar.gz'
+    dest: '{{ software_dir }}'
+    copy: no
+    creates: '{{ software_dir }}/stacks-{{ version }}/README'
+  ignore_errors: yes
+
+- name: ./configure Stacks
+  shell: '{{ item }}'
+  args:
+   chdir: '{{ software_dir }}/stacks-{{ version }}'
+  loop:
+    - ./configure
+  
+- name: make Stacks
+  shell: '{{ item }}'
+  args:
+   chdir: '{{ software_dir }}/stacks-{{ version }}'
+  loop:
+    - make
+
+- name: make install Stacks
+  shell: '{{ item }}'
+  args:
+   chdir: '{{ software_dir }}/stacks-{{ version }}'
+  loop:
+    - make install
+  become: yes
