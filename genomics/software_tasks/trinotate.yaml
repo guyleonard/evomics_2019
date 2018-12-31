@@ -45,8 +45,8 @@
     dest: '/home/{{ workshop_user }}/.bash_paths'
     backrefs: yes
     backup: yes
-    regexp: "PATH=((?!.*?{{source_dir}}/Transdecoder).*?)$"
-    line: "PATH=\\1:{{source_dir}}/Transdecoder"
+    regexp: "PATH=((?!.*?{{source_dir}}/TransDecoder).*?)$"
+    line: "PATH=\\1:{{source_dir}}/TransDecoder"
 
 - name: Adding TRINOTATE_HOME to .bash_paths
   lineinfile:
