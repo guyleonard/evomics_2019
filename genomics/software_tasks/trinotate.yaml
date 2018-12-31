@@ -42,7 +42,7 @@
 
 - name: Adding Trandsdecoder to PATH
   lineinfile:
-    dest=: '/home/{{ workshop_user }}/.bash_paths'
+    dest: '/home/{{ workshop_user }}/.bash_paths'
     backrefs: yes
     backup: yes
     regexp: "PATH=((?!.*?{{source_dir}}/Transdecoder).*?)$"
