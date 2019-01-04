@@ -264,6 +264,20 @@
     - include: software_tasks/cbs_programs.yaml
       tags: trinity, cbs, signalp, tmhmm, rnammer, transcriptomics
 
+    - name: Installing xpdf and lighttpd
+      apt:
+        name: '{{ packages }}'
+        state: present
+      vars:
+        packages:
+          - xpdf
+          - lighttpd
+      tags: transcriptomics, xpdf
+
+    - name:
+      include: software_tasks/rsem.yaml version=1.3.1
+      tags: transcriptomics, rsem
+
     # microbiome
     - name: QIIME2
       include: software_tasks/qiime2_env.yaml

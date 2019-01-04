@@ -25,6 +25,7 @@
 
 - name: Downloading CBS Software - via wget
   shell: 'wget https://s3.amazonaws.com/2019evomics/cbs_programs.tar.gz -O {{ source_dir }}/cbs_programs.tar.gz'
+  warn: False
 
 - name: Uncompressing CBS Software
   unarchive:
