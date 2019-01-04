@@ -210,7 +210,7 @@
 
     - main: SPAdes
       include: software_tasks/SPAdes.yaml version=3.13.0
-      tags: genomics, spades
+      tags: genomics, assembly, spades
 
     - name: QUAST
       include: software_tasks/quast.yaml version=5.0.2
@@ -251,6 +251,10 @@
     - name: PROKKA
       include: software_tasks/prokka.yaml
       tags: assembly, prokka
+
+    - name: miniasm
+      include: software_tasks/miniasm.yaml
+      tags: genomics, minimap, minias, assembly
 
     # reproducible
     ## mostly R I think
