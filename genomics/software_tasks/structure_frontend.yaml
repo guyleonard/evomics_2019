@@ -20,13 +20,15 @@
 - name: 1 Edit install to change name from "structure" to "structure_frontend"
   lineinfile:
     dest: '{{ software_dir }}/frontend/install'
-    regexp: '>structure' line="open START, \">structure_frontend\";'
+    regexp: '>structure'
+    line: "open START, \">structure_frontend\";"
     backup: yes
 
 - name: 2 Edit install to change name from "structure" to "structure_frontend"
   lineinfile:
     dest: '{{ software_dir }}/frontend/install'
-    regexp: "chmod \+x structure' line="`chmod +x structure_frontend`;"
+    regexp: "chmod \+x structure"
+    line: "`chmod +x structure_frontend`;"
     backup: yes
 
 - name: Install Structure Frontend
