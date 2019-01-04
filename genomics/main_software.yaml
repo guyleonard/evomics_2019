@@ -244,7 +244,13 @@
       tags: genomics, genomics_extras
 
     # assembly - waiting
-    # reproducible - waiting
+    - name: CANU
+      include: software_tasks/canu.yaml
+      tags: assembly, canu
+
+    # reproducible
+    ## mostly R I think
+
     # visualisation - R/bioconductor libs
     - name: R Libraries
       include: software_tasks/r_visualisation.yaml
@@ -259,7 +265,7 @@
       tags: trinity, transcriptomics
 
     - include: software_tasks/trinotate.yaml
-      tags: transcriptomics, trinotate, transdecoder      
+      tags: transcriptomics, trinotate, transdecoder
 
     - include: software_tasks/cbs_programs.yaml
       tags: trinity, cbs, signalp, tmhmm, rnammer, transcriptomics
