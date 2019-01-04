@@ -12,16 +12,16 @@
     src: '{{ source_dir }}/structure_kernel_source.tar.gz'
     dest: '{{ software_dir }}'
     copy: no
-    creates: '{{ software_dir }}/console/Makefile'
+    creates: '{{ software_dir }}/structure_kernel_source/Makefile'
     owner: '{{ workshop_user }}'
     group: workshop
     
 - name: make Structure
   make:
-    chdir: '{{ software_dir }}/console/'
+    chdir: '{{ software_dir }}/structure_kernel_source/'
 
 - name: Symlink structure to /usr/local/bin
   file:
-    src: '{{ software_dir }}/console/structure'
+    src: '{{ software_dir }}/structure_kernel_source/structure'
     dest: '/usr/local/bin/structure'
     state: link
