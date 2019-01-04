@@ -1,6 +1,6 @@
 - name: Downloading Structure
   get_url:
-    url: 'http://pritchardlab.stanford.edu/structure_software/release_versions/v{{version}}/structure_kernel_source.tar.gz'
+    url: 'https://web.stanford.edu/group/pritchardlab/structure_software/release_versions/v{{ version }}/release/structure_linux_frontend.tar.gz'
     dest: '{{ source_dir }}/structure_kernel_source.tar.gz'
   register: get_url_result
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
