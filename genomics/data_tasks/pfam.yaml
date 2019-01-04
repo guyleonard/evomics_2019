@@ -4,8 +4,7 @@
     dest: '{{ workshop_dir }}/transcriptomics/trinotate_databases'
 
 - name: Uncompress Pfam-A DB
-  shell: gunzip -f "{{ workshop_dir }}/transcriptomics/trinotate_databases/Pfam-A.hmm.gz"
-  chdir: '{{ workshop_dir }}/transcriptomics/trinotate_databases/'
+  shell: "gunzip -f {{ workshop_dir }}/transcriptomics/trinotate_databases/Pfam-A.hmm.gz {{ workshop_dir }}/transcriptomics/trinotate_databases/"
 
 - name: Check for Previous Pfam-A
   stat:
@@ -13,6 +12,5 @@
   register: pfama_exists
 
 - name: Running hmmpress on Pfam-A
-  shell: hmmpress Pfam-A.hmm
-  chdir: '{{ workshop_dir }}/transcriptomics/trinotate_databases/'
+  shell: hmmpress {{ workshop_dir }}/transcriptomics/trinotate_databases/Pfam-A.hmm
   when: pfama_exists == False
