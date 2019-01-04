@@ -36,7 +36,7 @@
 
 - name: Symlink structure_frontend to /usr/local/bin
   file:
-    src: '{{ software_dir }}/frontend/structure_frontend'
+    src: '{{ software_dir }}/frontend/bin/structure'
     dest: '/usr/local/bin/structure_frontend'
     state: link
 
