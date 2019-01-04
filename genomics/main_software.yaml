@@ -305,4 +305,18 @@
     - include: software_tasks/stacks.yaml version=2.2
       tags: radseq, stacks
 
+    - name: Install gnuplot
+      apt:
+        name: gnuplot
+        state: present
+      tags: radseq, stacks, gnuplot
+
+    - name: structure_console
+      include: software_tasks/structure_console.yaml version=2.3.4
+      tags: radseq, stacks, structure
+
+    - name: structure_frontend
+      include: software_tasks/structure_frontend.yaml version=2.3.4
+      tags: radseq, stacks, structure
+
     # phylogenomics - waiting
