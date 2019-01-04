@@ -11,5 +11,4 @@
   shell: "gunzip -f {{ workshop_dir }}/transcriptomics/trinotate_databases/uniprot_sprot.pep.gz {{ workshop_dir }}/transcriptomics/trinotate_databases/"
  
 - name: Running makeblastdb on UniProt DB
-  shell: makeblastdb -in uniprot_sprot.pep -dbtype prot
-  chdir: '{{ workshop_dir }}/transcriptomics/trinotate_databases/'
+  shell: "makeblastdb -in {{ workshop_dir }}/transcriptomics/trinotate_databases/uniprot_sprot.pep -dbtype prot"
