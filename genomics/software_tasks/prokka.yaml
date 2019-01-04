@@ -1,0 +1,56 @@
+- name: Install PROKKA Perl Dependencies
+  cpanm:
+    name: '{{ item }}'
+  loop:
+    - Bio::Perl
+    - Digest::MD5
+    - LWP::UserAgent
+    - XML::Simple
+
+# hmmer can be installed from the {{workshop_user}} playbook
+- name: Install PROKKA apt dependencies
+  apt:
+    name: '{{ packages }}'
+    state: present
+  vars:
+    packages:
+      - aragorn
+      - barrnap
+      - infernal
+      - ncbi-blast+
+      - prodigal 
+      - parallel
+
+- name: Get tbl2asn
+  get_url:
+    url: 'ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz'
+    dest: '{{ source_dir }}/linux64.tbl2asn.gz'
+
+- name: Unzip tbl2asn
+  shell: "gunzip -f {{ source_dir }}/linux64.tbl2asn.gz"
+
+- name: Copy tbl2asn
+  copy: 
+    src: '{{ source_dir }}/linux64.tbl2asn'
+    dest: /usr/bin/tbl2asn
+
+- name: Clone PROKKA
+  git:
+    repo: 'https://github.com/tseemann/prokka.git'
+    dest: '{{ software_dir }}/prokka'
+    clone: yes
+    update: yes
+
+- name: Setup PROKKA db
+  shell: bin/prokka --setupdb
+  args:
+   chdir: '{{ software_dir }}/prokka'
+
+- name: Add Prokka to PATH
+  lineinfile:
+    dest: '/home/{{ workshop_user }}/.bash_paths'
+    backrefs: yes
+    backup: yes
+    regexp: "PATH=((?!.*?/home/{{ workshop_user }}/software/prokka/bin/).*?)$"
+    line: "PATH=\\1:/home/{{ workshop_user }}/software/prokka/bin/"
+

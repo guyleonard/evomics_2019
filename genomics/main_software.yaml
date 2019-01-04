@@ -248,6 +248,10 @@
       include: software_tasks/canu.yaml
       tags: assembly, canu
 
+    - name: PROKKA
+      include: software_tasks/prokka.yaml
+      tags: assembly, prokka
+
     # reproducible
     ## mostly R I think
 
