@@ -13,7 +13,9 @@
     dest: '{{ software_dir }}'
     copy: no
     creates: '{{ software_dir }}/console/Makefile'
-
+    owner: '{{ workshop_user }}'
+    group: workshop
+    
 - name: make Structure
   make:
     chdir: '{{ software_dir }}/console/'
