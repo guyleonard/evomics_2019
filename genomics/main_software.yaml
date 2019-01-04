@@ -256,6 +256,10 @@
       include: software_tasks/miniasm.yaml
       tags: miniasm, assembly
 
+    - name: minimap
+      include: software_tasks/minimap.yaml
+      tags: genomics, minimap, miniasm, assembly
+
     # reproducible
     ## mostly R I think
 
