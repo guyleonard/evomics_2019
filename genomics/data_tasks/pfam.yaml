@@ -4,8 +4,8 @@
     dest: '{{ workshop_dir }}/transcriptomics/trinotate_databases'
 
 - name: Uncompress Pfam-A DB
-  shell: "gunzip -f {{ workshop_dir }}/transcriptomics/trinotate_databases/Pfam-A.hmm.gz {{ workshop_dir }}/transcriptomics/trinotate_databases/"
-
+  shell: "gunzip -f {{ workshop_dir }}/transcriptomics/trinotate_databases/Pfam-A.hmm.gz"
+  
 - name: Check for Previous Pfam-A
   stat:
     path: '{{ workshop_dir }}/transcriptomics/trinotate_databases/Pfam-A.hmm.h3i'

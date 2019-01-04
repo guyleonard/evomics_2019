@@ -4,7 +4,7 @@
     dest: '{{ workshop_dir }}/transcriptomics/trinotate_databases'
 
 - name: Uncompress Trinotate Pre-generated Resource SQLite DB
-  shell: "gunzip -f {{ workshop_dir }}/transcriptomics/trinotate_databases/Trinotate_v3.sqlite.gz {{ workshop_dir }}/transcriptomics/trinotate_databases/"
-
+  shell: "gunzip -f {{ workshop_dir }}/transcriptomics/trinotate_databases/Trinotate_v3.sqlite.gz"
+  
 - name: Rename Trinotate Pre-generated Resource SQLite DB
   shell: mv {{ workshop_dir }}/transcriptomics/trinotate_databases/Trinotate_v3.sqlite {{ workshop_dir }}/transcriptomics/trinotate_databases/Trinotate.sqlite
