@@ -154,6 +154,10 @@
       include: software_tasks/minimap2.yaml
       tags: minimap, alignment
 
+    - name: picard
+      include: software_tasks/picard_tools.yaml
+      tags: picard, alignment
+
     # genomics
     - name: Install trimmomatic
       apt:
