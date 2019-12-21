@@ -25,24 +25,27 @@
         state: directory
         owner: '{{ workshop_user }}'
         group: workshop
-
+      tags: user
+      
     - name: Create Software Source Dir
       file:
         path: '{{ source_dir }}'
         state: directory
         owner: '{{ workshop_user }}'
         group: workshop
-
+      tags: user
+      
     - name: Create Workshop Directory
       file:
         path: '{{ workshop_dir }}'
         state: directory
         owner: '{{ workshop_user }}'
         group: workshop
-
+      tags: user
+      
     - name: Profile Info
       include: software_tasks/profile.yaml
-      tags: alias, profile
+      tags: user, alias, profile
     
     - name: Changing hostname to {{ workshop_user }}
       lineinfile: dest=/etc/hostname regexp="^ip.*" line="{{workshop_user}}"
